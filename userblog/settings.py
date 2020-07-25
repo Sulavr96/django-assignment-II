@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'user'
+    'user',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -122,10 +123,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'user.CustomUser'
-AUTHENTICATION_BACKENDS = ['user.backend.EmailBackend']
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = 'cb47610e0d7371'
 EMAIL_HOST_PASSWORD = '5c418073cb1516'
 EMAIL_PORT = '2525'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

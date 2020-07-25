@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/users.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Authors</title>
+</head>
+<body>
+{% include 'nav-bar.html'%}
+
+<div class="author-header">
+    Our Authors
+</div>
+<div class="row">
+{% for user in users %}
+    <div class="col-sm-4 welcome-container">
+    <div class="card">
+        {% load static %}
+        <img src="{% static 'img/profile-picture.jpg' %}" alt="author" style="width:100%">
+            <a href="/users/{{ user.id }}/blogs">
+               <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+            </a>
+            <span class="author-email"> {{ user.email }} </span> <br>
+            <a href="#"><i class="fa fa-twitter social-button"></i></a>
+            <a href="#"><i class="fa fa-linkedin social-button"></i></a>
+            <a href="#"><i class="fa fa-facebook social-button"></i></a>
+    </div>
+    </div>
+{% endfor %}
+</div>
+</body>
+</html>

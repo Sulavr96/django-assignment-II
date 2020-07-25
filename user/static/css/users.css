@@ -1,0 +1,42 @@
+body {
+    background-image: url("/static/img/author-background.jpg");
+    background-size: cover;
+  }
+  
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    background: wheat;
+  }
+  
+  .author-header {
+    font-size: 50px;
+    color: #ffffff;
+    padding: 25px 0px 25px 0px;
+    text-align: center;
+  }
+  
+  .social-button {
+    font-size: 30px !important;
+    margin: 10px;
+  }
+  
+  .author-email {
+    color: blue;
+    font-size: 25px;
+  }
+  
+  .home-link {
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: bold;
+  }
+  
+  .home-link:hover {
+      color: #ffffff;
+      text-decoration: none;
+  }

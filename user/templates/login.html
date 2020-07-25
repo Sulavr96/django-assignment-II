@@ -2,15 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign In</title>
+    <title>Log In</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
+  {% include 'nav-bar.html'%}
+  {% load crispy_forms_tags %}
 <h1>Login</h1>
-
 <form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit" id="submit">Login</button>
+    {% csrf_token %}
+    {{ form|crispy }}
+  </div>
+  <input class="btn btn-primary" type="submit" value="Login"/>
 </form>
+{% if messages %}
+    <ul class="messages">
+      {% for msg in messages %}       
+        <li>
+          <div class="alert alert-{{msg.level_tag}}" role="alert">
+            {{msg.message}}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
 </body>
 </html>

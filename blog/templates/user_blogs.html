@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Blogs</title>
+</head>
+<body>
+{% include 'nav-bar.html'%}
+
+<h2 class="author-name">Blogs From {{ user_name }}</h2>
+{% for blog in blogs %}
+    <div class="blog-container">
+        <h2 class="blog-title">{{ blog.title }}</h2>
+        <h4> <i>{{ blog.published_day }}</i></h4>
+        <p> {{ blog.content }} </p>
+    </div>
+    {% empty %}
+    <h3 class="author-name"> No blogs found </h3>    
+{% endfor %}
+</body>
+</html>

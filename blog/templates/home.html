@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/home.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home</title>
 </head>
 <body>
-Hi from home
+      {% include 'nav-bar.html' %}
+    {% csrf_token %}
+    <div class="container main-container">
+        <div class="row">
+            <div class="col-sm-12 welcome-container">
+               <span> Welcome to our blog page </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 content-container">
+              <h1>
+                  <a class="author-link"  href="/users">
+                          Check out some blog from our authors &#8594
+                  </a>
+              </h1>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

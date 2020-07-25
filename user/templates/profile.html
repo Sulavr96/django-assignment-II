@@ -3,9 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <title>Profile</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/profile.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    hello from profile
-Click <a href="/user/logout/">here</a> to logout <br><br>
+    {% include 'nav-bar.html'%}
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="left-container">
+                <img 
+                    src="{{request.user.profile_image.url}}"
+                    height="250"
+                    width="250" 
+                    class="profile-image"    
+                >
+                </img>
+                <br/>
+                <p class="edit-profile-btn">
+                <a href="/users/update" class="btn btn-info" role="button"> 
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit profile
+                </a>
+            </p>
+            </div>
+        </div>
+        
+        <div class="col-sm-9">
+            <a href="/users/logout/" class="btn btn-info logout-btn" role="button">Log out</a> <br>
+            <h2>{{ request.user.get_full_name }} </h2> 
+            <a href="/users/delete" class="btn btn-info del-btn" role="button"> 
+                <i class="fa fa-trash" aria-hidden="true"></i> Delete account
+            </a> <br>
+            <a href="/users/{{ request.user.id }}/blogs" class="btn btn-info" role="button"> 
+                <i class="fa fa-eye" aria-hidden="true"></i> View my blogs 
+            </a>
+            <a href="/blogs/create" class="btn btn-info" role="button">
+                <i class="fa fa-plus" aria-hidden="true"></i> Create a blog
+            </a>
+            <div class="container">
+                <h2>Blogs</h2>            
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Blog</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                {% for blog in blogs %}
+                    <tbody>
+                        <tr>
+                            <td class="blog-title">{{ blog.title}}</td>
+                            <td>
+                                <a href="/blogs/{{blog.id}}/edit" class="btn" role="button"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                                <a href="/blogs/{{blog.id}}/delete" class="btn" role="button"><i class="fa fa-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                {%endfor%}
+                </table>
+             </div>
+        </div>
+    </div>
 </body>
 </html>

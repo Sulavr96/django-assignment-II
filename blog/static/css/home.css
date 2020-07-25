@@ -1,0 +1,36 @@
+body {
+    font-family: 'sans-serif';
+    background-image: url("/static/img/cover.jpg");
+    background-size: cover;
+  }
+  
+  .author-link {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  .author-link:hover {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .main-container {
+    color: #ffffff;
+  }
+  
+  .welcome-container {
+    padding: 65px;
+    text-align: center;
+    font-size: 50px;
+  }
+  
+  .content-container {
+    margin: 200px;
+    text-align: center;
+    background: #824440;
+    border: 1px #824440;
+    border-radius: 20px;
+    max-width: 800px;
+    max-height: 100px;
+    opacity: 0.8;
+  }
